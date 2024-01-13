@@ -102,7 +102,7 @@ if __name__ == "__main__":
     # check if the path is a folder or a file
     if os.path.isfile(path):
         print("The path is a file.")
-        handle_file(path)
+        handle_file(path, language)
         sys.exit(0)
 
     print("The path exists.")

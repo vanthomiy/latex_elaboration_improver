@@ -1,4 +1,4 @@
-# latex_elaboration_improver
+# LaTex Elaboration Improver
 
 This is a simple tool to improve the elaboration of latex files.
 
