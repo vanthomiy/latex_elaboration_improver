@@ -24,7 +24,7 @@ def recursive_split(text: str, max_allowed_token: int, level: int) -> list[str]:
     return result
 
 
-def handle_file(file_path: str) -> None:
+def handle_file(file_path: str, _language: str) -> None:
     """
     Handle a latex file.
     We will do the following:
@@ -68,7 +68,7 @@ def handle_file(file_path: str) -> None:
     # region 4. improve text for each Segment with GPT-4
     for i in range(len(segments)):
         print("Segment {} of {}".format(i + 1, len(segments)))
-        segments[i] = gpt.call(segments[i], "German")
+        segments[i] = gpt.call(segments[i], _language)
     latex = "".join(segments)
 
     # endregion 4. improve text for each Segment with GPT-4
@@ -88,6 +88,11 @@ if __name__ == "__main__":
         path = input("Please provide a path to the latex content:\n")
     else:
         path = sys.argv[1]
+
+    language = "German"
+    # check if language is provided
+    if len(sys.argv) >= 3:
+        language = sys.argv[2]
 
     # check if the folder exists
     if not os.path.exists(path):
@@ -120,4 +125,4 @@ if __name__ == "__main__":
         # ask the user if they want to process the file
         # if yes, process the file
         if input("Do you want to process this file? (y/n): ") == "y":
-            handle_file(file)
+            handle_file(file, language)
