@@ -6,10 +6,10 @@ This is a simple tool to improve the elaboration of latex files.
 Pass either the path to a file or a directory as an argument to the script.
 You can also pass the language as a second argument, the default is `German`.
 
-'''bash
-python3 main.py [/path/to/file/or/directory] [language]
-'''
 
+```bash
+python main.py [/path/to/file/or/directory] [language]
+```
 
 It will create a new folder called `x_improved` in the same directory as the file or directory you passed as an argument.
 
