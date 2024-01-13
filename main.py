@@ -34,6 +34,7 @@ def handle_file(file_path: str, _language: str) -> None:
     4. Improve text for each Segment with GPT-4.
     5. Write the output to a file.
 
+    :param _language: The language of the latex file.
     :param file_path: The path to the latex file.
     """
 
