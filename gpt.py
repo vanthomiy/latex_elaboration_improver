@@ -21,7 +21,7 @@ def count_token(_text: str) -> int:
     return len(enc.encode(_text))
 
 
-def call(_text: str) -> str:
+def call(_text: str, _language: str) -> str:
     messages = [{
         "role": "system",
         "content": "Given a scientific master thesis written in LaTeX format, please review and improve the "
@@ -30,7 +30,7 @@ def call(_text: str) -> str:
                    "and overall quality of the written content. Additionally, ensure that the revised text "
                    "adheres to the conventions and standards of academic writing. Provide detailed and "
                    "insightful edits to enhance the overall readability and professionalism of the document."
-                   "The language of the thesis is German."
+                   "The language of the thesis is {}.".format(_language)
     },
         {
             "role": "user",
@@ -58,4 +58,4 @@ def call(_text: str) -> str:
 
 if __name__ == "__main__":
     text = "This is a test."
-    print(call(text))
+    print(call(text, "English"))

@@ -24,8 +24,6 @@ def recursive_split(text: str, max_allowed_token: int, level: int) -> list[str]:
     return result
 
 
-
-
 def handle_file(file_path: str) -> None:
     """
     Handle a latex file.
@@ -70,7 +68,7 @@ def handle_file(file_path: str) -> None:
     # region 4. improve text for each Segment with GPT-4
     for i in range(len(segments)):
         print("Segment {} of {}".format(i + 1, len(segments)))
-        segments[i] = gpt.call(segments[i])
+        segments[i] = gpt.call(segments[i], "German")
     latex = "".join(segments)
 
     # endregion 4. improve text for each Segment with GPT-4
